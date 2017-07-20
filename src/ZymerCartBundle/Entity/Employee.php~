@@ -1,0 +1,47 @@
+<?php
+
+namespace ZymerCartBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Employee
+ *
+ * @ORM\Table(name="employee")
+ * @ORM\Entity(repositoryClass="ZymerCartBundle\Entity\EmployeeRepository")
+ */
+class Employee
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=250, nullable=false)
+     */
+    private $name;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="salary", type="integer", nullable=false)
+     */
+    private $salary;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=250, nullable=false)
+     */
+    private $email;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="empid", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $empid;
+
+
+}
+

@@ -1,0 +1,44 @@
+{% set mypath = "zymercart_bundle_employee_edit_post" %}
+{{ form_start(form_employee, {'action' : path(mypath,{'empId':empId}), 'attr' : {'class':'js-add-edit-form form-horizontal'}}) }}
+<fieldset>
+
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="selectbasic">Employee Name</label>
+  <div class="col-md-4">
+     {{ form_widget(form_employee.name, {'attr': {'class':'empname','id':'empname'}}) }}
+     {{ form_errors(form_employee.name) }}
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 " for="">Salary</label>
+  
+     <div class="col-md-4">
+     {{ form_widget(form_employee.salary, {'attr': {'class':'salary','id':'salary'}}) }}
+     {{ form_errors(form_employee.salary) }}
+     </div>
+</div>
+
+<!-- Multiple Radios (inline) -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="">Email</label>
+  
+     <div class="col-md-4">
+     {{ form_widget(form_employee.email, {'attr': {'class':'email','id':'email'}}) }}
+     {{ form_errors(form_employee.email) }}
+     </div>
+</div>
+<div class="form-group">
+  
+  
+     <div class="col-md-4">
+     <button type="submit" id ="js-form-employee-submit">Save</button>
+     <button type="reset" id ="js-form-employee-reset">Reset</button>
+     </div>
+</div>
+{{ form_rest(form_employee, {'attr' :{'class' :'hidden'}})  }}
+</fieldset>
+{{ form_end(form_employee)}}

@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <!--
+    <services>
+        <service id="zymer_cart.example" class="ZymerCartBundle\Example">
+            <argument type="service" id="service_id" />
+            <argument>plain_value</argument>
+            <argument>%parameter_name%</argument>
+        </service>
+    </services>
+    -->
+    <parameters>
+	    <parameter key="zymercart_bundle.cart_manager">ZymerCartBundle\Manager\Services\CartServices</parameter>
+    </parameters>
+    <services>
+    	<service id="zymercart_bundle_cart_factory" class="%zymercart_bundle.cart_manager%"></service>
+    	<service id="symercart_bundle_cart_manager" class="%zymercart_bundle.cart_manager%" scope="request">
+    		<factory service="zymercart_bundle_cart_factory" method="initFactory"></factory>
+    		<argument type="service" id="doctrine.orm.entity_manager"></argument>
+    		<argument type="service" id="request"></argument>
+    	</service>
+    </services>
+</container>

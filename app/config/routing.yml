@@ -1,0 +1,8 @@
+zymer_cart:
+    resource: "@ZymerCartBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
